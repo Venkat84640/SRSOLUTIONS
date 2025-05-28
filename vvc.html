@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SR SOLUTIONS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #121212;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Floating Background Text Animation */
+    .floating-text {
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 5rem;
+      color: rgba(255,255,255,0.05);
+      white-space: nowrap;
+      transform: rotate(-45deg);
+      animation: floatText 60s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatText {
+      from { transform: translateX(100%) rotate(-45deg); }
+      to { transform: translateX(-100%) rotate(-45deg); }
+    }
+
+    header, nav, section, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      background-color: #004d40;
+      text-align: center;
+      padding: 30px;
+    }
+
+    nav {
+      background-color: #00796b;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 40px;
+    }
+
+    .highlight {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 5px solid #80cbc4;
+      border-radius: 10px;
+    }
+
+    form {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #555;
+      border-radius: 5px;
+      font-size: 16px;
+      background: #333;
+      color: white;
+    }
+
+    button {
+      background: #00c853;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #00b341;
+    }
+
+    #submittedDetails {
+      background: rgba(0, 255, 100, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+      border-left: 5px solid #00e676;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background: #004d40;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="floating-text">SR SOLUTIONS • LOANS • CREDIT • FINANCE •</div>
+
+  <header>
+    <h1>SR SOLUTIONS</h1>
+    <p>LOANS AND CREDIT CARD SERVICES (ALL LOCATIONS)</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <div class="highlight">
+      <h2>Loan Services</h2>
+      <p>Home, Personal, Business & Vehicle Loans with lowest interest rates and quick approval.</p>
+    </div>
+    <div class="highlight">
+      <h2>Credit Card Services</h2>
+      <p>Zero annual fee cards, cashback, travel rewards and EMI conversion options.</p>
+    </div>
+    <div class="highlight">
+      <h2>Special Offers</h2>
+      <p>🎁 Zero processing fee this month.  
+         💳 Get a free movie ticket every weekend with our Platinum Card.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>SR Solutions is a trusted brand in India offering financial services with honesty and efficiency. Our expert advisors help you choose the right product for your financial goals.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us / Enquiry Form</h2>
+
+    <form id="enquiryForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="tel" name="cell" placeholder="Cell Number" required>
+      <input type="text" name="job" placeholder="Your Job Title">
+      <input type="text" name="designation" placeholder="Designation">
+      <input type="number" name="salary" placeholder="Monthly Salary">
+      <textarea name="message" placeholder="Additional Information" rows="4"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="submittedDetails" style="display:none;">
+      <h3>Submitted Details:</h3>
+      <p><strong>Name:</strong> <span id="displayName"></span></p>
+      <p><strong>Cell Number:</strong> <span id="displayCell"></span></p>
+      <p><strong>Job Title:</strong> <span id="displayJob"></span></p>
+      <p><strong>Designation:</strong> <span id="displayDesignation"></span></p>
+      <p><strong>Salary:</strong> <span id="displaySalary"></span></p>
+      <p><strong>Message:</strong> <span id="displayMessage"></span></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Email us at: <a href="mailto:support@srsolutions.com" style="color:lightgreen;">support@srsolutions.com</a></p>
+    <p>&copy; 2025 SR Solutions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = this.name.value;
+      const cell = this.cell.value;
+      const job = this.job.value;
+      const designation = this.designation.value;
+      const salary = this.salary.value;
+      const message = this.message.value;
+
+      // Show submitted details on the page
+      document.getElementById('displayName').textContent = name;
+      document.getElementById('displayCell').textContent = cell;
+      document.getElementById('displayJob').textContent = job;
+      document.getElementById('displayDesignation').textContent = designation;
+      document.getElementById('displaySalary').textContent = salary;
+      document.getElementById('displayMessage').textContent = message;
+      document.getElementById('submittedDetails').style.display = 'block';
+
+      // WhatsApp Redirect
+      const text = `SR SOLUTIONS ENQUIRY:\n\nName: ${name}\nCell: ${cell}\nJob: ${job}\nDesignation: ${designation}\nSalary: ${salary}\nMessage: ${message}`;
+      const encodedText = encodeURIComponent(text);
+      const phoneNumber = "8464084940"; // Your phone number
+      const whatsappURL = `https://wa.me/91${phoneNumber}?text=${encodedText}`;
+
+      // Open WhatsApp link
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+
+</body>
+</html>
